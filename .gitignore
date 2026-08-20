@@ -1,0 +1,27 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments (the local .venv link is intentionally untracked)
+.venv
+venv/
+env/
+ENV/
+
+# Test, type-checking, and coverage output
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Notebook checkpoints and generated local output
+.ipynb_checkpoints/
+*.log
+
+# OS and editor files
+.DS_Store
+.vscode/
+.idea/
