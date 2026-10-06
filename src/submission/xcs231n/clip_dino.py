@@ -26,7 +26,9 @@ def get_similarity_no_loop(text_features, image_features):
     # TODO: Compute the cosine similarity. Do NOT use for loops.               #
     ############################################################################
     # ### START CODE HERE ###
-    similarity = text_features @ image_features.T
+    text_features_norm = text_features / torch.norm(text_features, dim=1, keepdim=True)
+    image_features_norm = image_features / torch.norm(image_features, dim = 1, keepdim=True)
+    similarity = text_features_norm @ image_features_norm.T
     # ### END CODE HERE ###
     ############################################################################
     #                             END OF YOUR CODE                             #
