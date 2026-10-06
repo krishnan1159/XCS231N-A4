@@ -16,6 +16,19 @@ ENV/
 .coverage
 coverage.xml
 htmlcov/
+.coverage.*
+.hypothesis/
+.tox/
+.nox/
+.pyre/
+.pytype/
+
+# Python build and packaging output
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
 
 # Notebook checkpoints and generated local output
 .ipynb_checkpoints/

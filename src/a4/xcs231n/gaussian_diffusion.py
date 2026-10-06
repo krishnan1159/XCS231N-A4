@@ -183,7 +183,6 @@ class GaussianDiffusion(nn.Module):
         #      and sample x_{t-1}.
         ##################################################################
         # ### START CODE HERE ###
-        
         # ### END CODE HERE ###
         ##################################################################
 
@@ -255,9 +254,6 @@ class GaussianDiffusion(nn.Module):
         # Approximately 3-4 lines of code.
         ####################################################################
         # ### START CODE HERE ###
-        x_t = self.q_sample(x_start, t, noise)
-        predicted = self.model(x_t, t, model_kwargs)
-        loss = torch.mean(loss_weight * torch.square(target - predicted))
         # ### END CODE HERE ###
         ####################################################################
 
