@@ -66,6 +66,24 @@ def clip_zero_shot_classifier(clip_model, clip_preprocess, images,
     # TODO: Find the class labels for images.                                  #
     ############################################################################
     # ### START CODE HERE ###
+    text_tokens = clip.tokenize(class_texts).to(device)
+    with torch.no_grad():
+        text_features = clip_model.encode_text(text_tokens)
+
+    processed_images = [
+        clip_preprocess(Image.fromarray(img)).unsqueeze(0)
+        for img in images
+    ]
+
+    images_tensor = torch.cat(processed_images, dim=0).to(device)
+    with torch.no_grad():
+        img_features = clip_model.encode_image(images_tensor).to(device)
+
+    similarity_scores = get_similarity_no_loop(text_features, img_features)
+    res_ids = torch.argmax(similarity_scores, axis=0)
+    for res_id in res_ids:
+        pred_classes.append(class_texts[res_id])
+
     # ### END CODE HERE ###
     ############################################################################
     #                             END OF YOUR CODE                             #
